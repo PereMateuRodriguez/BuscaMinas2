@@ -342,7 +342,7 @@ private class EscuchaBanderaCelda implements View.OnLongClickListener {
                 banderasColocadas++; // Incrementar el contador de banderas colocadas
             } else {
                 // Mostrar un mensaje si no se pueden colocar mas banderas
-                Toast.makeText(getActivity(), "No puedes colocar mas banderas", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "No puedo colozar mas banderas", Toast.LENGTH_SHORT).show();
                 return true;
             }
         }
@@ -512,7 +512,7 @@ private class EscuchaBanderaCelda implements View.OnLongClickListener {
         // Actualizar estadisticas i mostrar mensaje segun el resultado del juego
         if (ganada) {
             mainActivity.incrementarPartidasGanadas(); // Incrementar las partidas ganadas
-            Toast.makeText(getActivity(), "¡Wyn!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "¡Win!", Toast.LENGTH_SHORT).show();
         } else {
             mainActivity.incrementarPartidasPerdidas(); // Incrementar las partias perdidas
             Toast.makeText(getActivity(), "¡Game Over!", Toast.LENGTH_SHORT).show();
@@ -533,5 +533,4 @@ private class EscuchaBanderaCelda implements View.OnLongClickListener {
             }
         }
     }
-
 }
