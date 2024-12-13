@@ -2,4 +2,27 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="background">#303030</color> <!-- Gris oscuro -->
+    <color name="cell_background">#FFFFFF</color> <!-- Blanco -->
+    <color name="cell_border">#BDBDBD</color> <!-- Gris claro -->
+    <color name="mine_background">#8CFF5252</color> <!-- Rojo intenso -->
+    <color name="mine_border">#800404</color> <!-- Rojo oscuro -->
+    <color name="revealed_background">#979797</color> <!-- Gris claro -->
+    <color name="revealed_border">#4B4B4B</color> <!-- Gris medio -->
+    <color name="easy_background">#BBDEFB</color> <!-- Azul claro pastel -->
+    <color name="medium_background">#FFCC80</color> <!-- Naranja pastel -->
+    <color name="hard_background">#EF5350</color> <!-- Rojo vibrante -->
+
+    <!-- Colores temáticos -->
+    <color name="green">#008000</color>
+    <color name="red">#FF0000</color>
+    <color name="gold">#FFD700</color>
+    <color name="background_green">#004D00</color>
+    <color name="button_background">#33691E</color>
+    <color name="button_border">#D32F2F</color>
+    <color name="background_christmas">#003300</color>
+
+    <!-- Texto -->
+    <color name="text_white">#FFFFFF</color>
+    <color name="text_gold">#FFD700</color>
 </resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Tema general de la aplicación -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Personalizaciones del tema general -->
+    </style>
+
+    <!-- Estilo personalizado para el texto del Toolbar -->
+    <style name="ToolbarTextAppearance" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="fontFamily">@font/christmas_font</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+    <!-- Estilo personalizado para el texto del BottomNavigationView -->
+    <style name="BottomNavigationTextAppearance" parent="TextAppearance.AppCompat">
+        <item name="fontFamily">@font/christmas_font</item>
+        <item name="android:textSize">17sp</item> <!-- Cambia el tamaño del texto si es necesario -->
+        <item name="android:textStyle">bold</item> <!-- O bold, italic -->
+    </style>
+</resources>

@@ -8,7 +8,13 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private String difficulty = "Facil"; // Valor predeterminado
+    private String dificultad = "Facil"; // Valor predeterminado
+
+    // Variables para estadisticas
+    private int partidasJugadas = 0;
+    private int partidasGanadas = 0;
+    private int partidasPerdidas = 0;
+    private long tiempoTotalJugado = 0; // Tiempo total en segundos
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,11 +55,44 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public String getDifficulty() {
-        return difficulty;
+    public String getDificultad() {
+        return dificultad;
     }
 
-    public void setDifficulty(String difficulty) {
-        this.difficulty = difficulty;
+    public void setDificultad(String dificultad) {
+        this.dificultad = dificultad;
+    }
+
+    // Métodos para estadísticas
+    public void incrementarPartidasJugadas() {
+        partidasJugadas++;
+    }
+
+    public void incrementarPartidasGanadas() {
+        partidasGanadas++;
+    }
+
+    public void incrementarPartidasPerdidas() {
+        partidasPerdidas++;
+    }
+
+    public void agregarTiempoJugado(long segundos) {
+        tiempoTotalJugado += segundos;
+    }
+
+    public int getPartidasJugadas() {
+        return partidasJugadas;
+    }
+
+    public int getPartidasGanadas() {
+        return partidasGanadas;
+    }
+
+    public int getPartidasPerdidas() {
+        return partidasPerdidas;
+    }
+
+    public long getTiempoTotalJugado() {
+        return tiempoTotalJugado;
     }
 }

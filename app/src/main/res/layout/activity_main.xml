@@ -5,13 +5,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/background_christmas">
+    <!-- Imagen de fondo -->
+    <ImageView
+        android:id="@+id/background_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/pngegg"/>
 
+    <!-- color de Fondo -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_christmas"
+        android:alpha="0.5" /> <!-- Transparencia para ver la imagen de fondo -->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
+        app:titleTextColor="@color/gold"
+        app:titleTextAppearance="@style/ToolbarTextAppearance"
+        app:subtitleTextColor="@color/green"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
+        android:background="@color/red"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
 
     <FrameLayout
@@ -29,6 +45,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        app:menu="@menu/bottom_nav_menu" />
+        app:itemTextAppearanceActive="@style/BottomNavigationTextAppearance"
+        app:itemTextAppearanceInactive="@style/BottomNavigationTextAppearance"
+        app:menu="@menu/bottom_nav_menu"
+        android:background="@color/red"
+        app:itemTextColor="@color/gold"
+        />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

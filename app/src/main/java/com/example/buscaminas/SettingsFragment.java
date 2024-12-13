@@ -27,7 +27,9 @@ public class SettingsFragment extends Fragment {
             }
 
             // Actualizar la dificultad en MainActivity
-            ((MainActivity) requireActivity()).setDifficulty(difficulty);
+            if (requireActivity() instanceof MainActivity) {
+                ((MainActivity) requireActivity()).setDificultad(difficulty);
+            }
         });
 
         return view;

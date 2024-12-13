@@ -7,10 +7,44 @@
     android:padding="16dp">
 
     <TextView
+        android:id="@+id/title_stats"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Estadísticas de Juego"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="16dp" />
 
-    <!-- Aquí podrías mostrar estadísticas como partidas ganadas y perdidas -->
+    <TextView
+        android:id="@+id/stats_partidas_jugadas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Partidas Jugadas: 0"
+        android:textSize="18sp"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:id="@+id/stats_partidas_ganadas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Partidas Ganadas: 0"
+        android:textSize="18sp"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:id="@+id/stats_partidas_perdidas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Partidas Perdidas: 0"
+        android:textSize="18sp"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:id="@+id/stats_tiempo_jugado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tiempo Total Jugado: 0 segundos"
+        android:textSize="18sp" />
+
 </LinearLayout>

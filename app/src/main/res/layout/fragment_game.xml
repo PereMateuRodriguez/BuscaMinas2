@@ -1,51 +1,96 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/darker_gray">
+    android:background="@color/background_christmas"
+    android:padding="20dp">
 
-    <!-- Botón para iniciar el juego -->
-    <Button
-        android:id="@+id/btn_start_game"
+    <!-- Contenedor para banderas restantes y temporizador -->
+    <LinearLayout
+        android:id="@+id/header_layout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Iniciar Juego"
-        android:backgroundTint="@android:color/holo_blue_light"
-        android:textColor="@android:color/white"
-        android:textStyle="bold"
+        android:orientation="horizontal"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="16dp" />
+        android:layout_marginBottom="16dp"
+        android:visibility="gone"> <!-- Ocultar inicialmente -->
 
-    <!-- Botón para reiniciar el juego -->
-    <Button
-        android:id="@+id/btn_retry"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Intentar de Nuevo"
-        android:backgroundTint="@android:color/holo_red_light"
-        android:textColor="@android:color/white"
-        android:textStyle="bold"
-        android:visibility="gone"
-        app:layout_constraintTop_toBottomOf="@id/btn_start_game"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="16dp" />
+        <!-- Texto para las banderas restantes -->
+        <TextView
+            android:id="@+id/flags_remaining_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Banderas: 0"
+            android:fontFamily="@font/christmas_font"
+            android:textSize="18sp"
+            android:textColor="@color/text_gold"
+            android:gravity="start" />
+
+        <!-- Texto para el temporizador -->
+        <TextView
+            android:id="@+id/timer_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="00:00"
+            android:fontFamily="@font/christmas_font"
+            android:textSize="18sp"
+            android:textColor="@color/text_gold"
+            android:gravity="end" />
+    </LinearLayout>
+
 
     <!-- Cuadrícula para el tablero -->
     <GridLayout
         android:id="@+id/game_grid"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/btn_retry"
+        android:alignmentMode="alignMargins"
+        android:background="@color/background_christmas"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/header_layout"
+        app:layout_constraintBottom_toTopOf="@id/restart_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Boton para reiniciar el juego -->
+    <Button
+        android:fontFamily="@font/christmas_font"
+        android:id="@+id/restart_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:icon="@drawable/restart"
+        android:text="Reiniciar"
+        android:textColor="@color/white"
+        app:iconTint="@color/white"
+        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+        android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:alignmentMode="alignMargins"
-        android:useDefaultMargins="false">
-    </GridLayout>
+        android:layout_marginBottom="25dp" />
 
+    <!-- Boton para iniciar -->
+    <Button
+        android:fontFamily="@font/christmas_font"
+        android:id="@+id/start_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text_white"
+        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+        android:backgroundTint="@color/button_background"
+        app:icon="@drawable/play_svgrepo_com"
+        app:iconTint="@color/button_border"
+        android:height="250dp"
+        android:text="Comenzar"
+        android:textSize="22sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

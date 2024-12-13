@@ -2,8 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/nav_game"
-        android:icon="@drawable/ic_game"
-        android:title="Juego" />
+        android:icon="@drawable/game"
+
+        android:title="Juegos" />
     <item
         android:id="@+id/nav_settings"
         android:icon="@drawable/icsettings"
@@ -11,5 +12,5 @@
     <item
         android:id="@+id/nav_stats"
         android:icon="@drawable/ic_stats"
-        android:title="Estadísticas" />
+        android:title="Estadisticas" />
 </menu>
