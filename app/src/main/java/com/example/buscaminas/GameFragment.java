@@ -86,7 +86,7 @@ public class GameFragment extends Fragment {
         return view;
     }
 
-
+//Creamos la cuadricula del juego
     private void createGrid() {
         // Eliminar cualquier vista previa en el diseño de la cuadrucula
         gridLayout.removeAllViews();
@@ -131,7 +131,7 @@ public class GameFragment extends Fragment {
         gridLayout.setColumnCount(tamanoActualcuadricula);
     }
 
-
+// Calcular el tamaño de cada boton en funcion del tamaño de la cuadricula
     private int calculateButtonSize() {
         // Obtener el ancho y alto de la pantalla en pixeles
         int gridWidth = getResources().getDisplayMetrics().widthPixels;
@@ -147,7 +147,7 @@ public class GameFragment extends Fragment {
         return (int) (buttonSize * 0.89);
     }
 
-
+// Iniciar el juego
     private void startGame() {
         // Reiniciar el estado del juego
         isGameOver = false; // Indica que el juego no ha terminado
@@ -173,7 +173,7 @@ public class GameFragment extends Fragment {
                 numMines = 20; // Numero de minas para dificultad dificil
                 break;
             default:
-                numMines = 1; // Numero de minas para dificultad facil o predeterminada
+                numMines = 1; // Numero de minas para difiultad facil o predeterminada
                 break;
         }
 
@@ -193,6 +193,7 @@ public class GameFragment extends Fragment {
         placeMines(numMines);
     }
 
+    // ---Colocar minas en posiciones aleatorias dentro de la cuadricula
     private void placeMines(int numMines) {
         // Generar minas de forma aleatoria dentro de la cuadricula
         Random random = new Random();
@@ -218,7 +219,7 @@ public class GameFragment extends Fragment {
         // Restablecer el texto del temporizador a "00:00"
         timerTextView.setText("00:00");
     }
-
+//--- iniciamos el temporaizador
     private void startTimer() {
         // Registrar el tiempo de inicio en milisegundos
         startTime = System.currentTimeMillis();
@@ -308,6 +309,7 @@ public class GameFragment extends Fragment {
         }
     }
 //--------------------------
+    //--- Colocar banderas en las celdas
 private class EscuchaBanderaCelda implements View.OnLongClickListener {
     private final int fila, col; // Coordenadas de la celda asociada al boton
 
@@ -319,7 +321,7 @@ private class EscuchaBanderaCelda implements View.OnLongClickListener {
 
 
 
-    //Sin uso por ahora IDEA
+    //Sin uso por ahora IDEA-- Mejorar y remplaxar --
     @Override
     public boolean onLongClick(View v) {
         // Obtener el boton correspondiente a la celda seleccionada
@@ -358,8 +360,9 @@ private class EscuchaBanderaCelda implements View.OnLongClickListener {
         return true; // Indicar que el evento de clic largo ha sido manejado
     }
 }
-
-
+//Acaba la clase de  banderas
+//--------
+    // Metodo para verificar si todas las banderas estan en las posiciones correctas
     private boolean todasLasBanderasCorrectas() {
         // Verifica si todas las banderas colocadas estan en las posiciones correctas donde hay minas
         for (int fila = 0; fila < tamanoActualcuadricula; fila++) {
@@ -374,6 +377,7 @@ private class EscuchaBanderaCelda implements View.OnLongClickListener {
         return true;
     }
 
+    //--- Metodo para revelar una celda
     private void revelarCelda(int fila, int col) {
         // Verificar si la celda esta fuera de los limites o ya fue revelada
         if (fila < 0 || col < 0 || fila >= tamanoActualcuadricula || col >= tamanoActualcuadricula || !botones[fila][col].isEnabled()) {
@@ -402,13 +406,13 @@ private class EscuchaBanderaCelda implements View.OnLongClickListener {
             endGame(true); // Finalizar el juego con exito
         }
     }
-
+    // Metodo para propagar las celdas sin minas
     private void PropagarCeros(int fila, int col) {
         // Coordenadas relativas para explorar las 8 direcciones alrededor de la celda
         int[] dx = {-1, -1, -1, 0, 0, 1, 1, 1};
         int[] dy = {-1, 0, 1, -1, 1, -1, 0, 1};
 
-        // Iterar sobre las 8 direcciones
+        // Iterrar sobre las 8 direcciones
         for (int i = 0; i < 8; i++) {
             int newFila = fila + dx[i]; // Nueva fila basada en el desplazamiento
             int newCol = col + dy[i];  // Nueva columna basada en el desplazamiento
@@ -422,12 +426,12 @@ private class EscuchaBanderaCelda implements View.OnLongClickListener {
             }
         }
     }
-
+    // Metodo para verificar si se cumplen las reglas para victoria
     private boolean verificarCondicionVictoria() {
         // Verificar si todas las celdas no minadas han sido reveladas
         for (int fila = 0; fila < tamanoActualcuadricula; fila++) {
             for (int col = 0; col < tamanoActualcuadricula; col++) {
-                // Si hay una celda sin mina que aún no ha sido revelada el juego no ha terminado
+                // si hay una celda sin mina que aún no ha sido revelada el juego no ha terminado
                 if (!mines[fila][col] && botones[fila][col].isEnabled()) {
                     return false;
                 }
@@ -436,6 +440,8 @@ private class EscuchaBanderaCelda implements View.OnLongClickListener {
         // Todas las celdas no minadas han sido reveladas el jugador gana
         return true;
     }
+
+    //--- Metodo para contar el numero de minas alrededor de una celda
     private int countMines(int fila, int col) {
         int count = 0; // Contador para las minas encontradas alrededor de la celda
 
@@ -457,7 +463,7 @@ private class EscuchaBanderaCelda implements View.OnLongClickListener {
         // Devolver el numero total de minas alrededor
         return count;
     }
-
+    //--- Metodo para redistribur las minas
     private void redistributeMines(int excludeFila, int excludeCol) {
         // Limpia todas las minas antes de redistribuir
         for (int fila = 0; fila < tamanoActualcuadricula; fila++) {
@@ -481,6 +487,9 @@ private class EscuchaBanderaCelda implements View.OnLongClickListener {
             }
         }
 
+
+
+
         // Colocar minas de forma aleatoria en las posiciones validas
         while (numMines > 0 && !posicionesValidas.isEmpty()) {
             int index = random.nextInt(posicionesValidas.size()); // Seleccionar una posicion aleatoria
@@ -489,10 +498,13 @@ private class EscuchaBanderaCelda implements View.OnLongClickListener {
             numMines--; // Reducir el numero de minas restantes por colocar
         }
     }
+    // Metodo para verificar si una celda esta en una zona excluida
     private boolean estaEnZonaExcluida(int fila, int col, int excludeFila, int excludeCol) {
         // Verifica si la celda especificada esta en la zona excluida  1 celda de distancia
         return Math.abs(fila - excludeFila) <= 1 && Math.abs(col - excludeCol) <= 1;
     }
+    //--- Metodo para finalizar el juego
+
     private void endGame(boolean ganada) {
         // Marcar el juego como terminado
         isGameOver = true;
@@ -518,7 +530,7 @@ private class EscuchaBanderaCelda implements View.OnLongClickListener {
             Toast.makeText(getActivity(), "¡Game Over!", Toast.LENGTH_SHORT).show();
         }
     }
-
+    // Metodo para revelar todas las minas en el tablero despues de cabar
     private void revealMines() {
         // Recorrer todas las celdas del tablero
         for (int fila = 0; fila < tamanoActualcuadricula; fila++) {

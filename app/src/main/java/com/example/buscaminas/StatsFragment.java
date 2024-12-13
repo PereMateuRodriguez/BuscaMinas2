@@ -26,7 +26,7 @@ public class StatsFragment extends Fragment {
         partidasJugadasTextView.setText("Partidas Jugadas: " + mainActivity.getPartidasJugadas());
         partidasGanadasTextView.setText("Partidas Ganadas: " + mainActivity.getPartidasGanadas());
         partidasPerdidasTextView.setText("Partidas Perdidas: " + mainActivity.getPartidasPerdidas());
-        tiempoJugadoTextView.setText("Tiempo Total Jugado: " + mainActivity.getTiempoTotalJugado() + " segundos");
+        tiempoJugadoTextView.setText("Tiempo Total Jugado: " + mainActivity.getTiempoTotalJugado() + " segunos");
 
         return view;
     }
