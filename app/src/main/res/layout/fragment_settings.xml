@@ -13,16 +13,19 @@
         <RadioButton
             android:id="@+id/radio_easy"
             android:layout_width="wrap_content"
+            android:fontFamily="@font/christmas_font"
             android:layout_height="wrap_content"
             android:text="Facil" />
         <RadioButton
             android:id="@+id/radio_medium"
             android:layout_width="wrap_content"
+            android:fontFamily="@font/christmas_font"
             android:layout_height="wrap_content"
             android:text="Medio" />
         <RadioButton
             android:id="@+id/radio_hard"
             android:layout_width="wrap_content"
+            android:fontFamily="@font/christmas_font"
             android:layout_height="wrap_content"
             android:text="Dificil" />
     </RadioGroup>

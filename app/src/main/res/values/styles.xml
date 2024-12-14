@@ -3,8 +3,9 @@
     <!-- Tema general de la aplicación -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Personalizaciones del tema general -->
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
     </style>
-
     <!-- Estilo personalizado para el texto del Toolbar -->
     <style name="ToolbarTextAppearance" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
         <item name="fontFamily">@font/christmas_font</item>

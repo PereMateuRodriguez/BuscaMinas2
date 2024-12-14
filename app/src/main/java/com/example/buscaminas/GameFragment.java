@@ -5,6 +5,7 @@ package com.example.buscaminas;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -147,7 +148,7 @@ public class GameFragment extends Fragment {
         return (int) (buttonSize * 0.89);
     }
 
-// Iniciar el juego
+// Iniciar el juego ---------------
     private void startGame() {
         // Reiniciar el estado del juego
         isGameOver = false; // Indica que el juego no ha terminado
@@ -186,7 +187,7 @@ public class GameFragment extends Fragment {
         // Actualizar el texto que muestra las banderas restantes
         textoBanderasRestantes.setText("Banderas: " + maxBanderas);
 
-        // Crear la cuadrícula del juego
+        // Crear la cuadricula del juego
         createGrid();
 
         // Colocar las minas en posiciones aleatorias dentro de la cuadricula
@@ -504,32 +505,31 @@ private class EscuchaBanderaCelda implements View.OnLongClickListener {
         return Math.abs(fila - excludeFila) <= 1 && Math.abs(col - excludeCol) <= 1;
     }
     //--- Metodo para finalizar el juego
-
     private void endGame(boolean ganada) {
-        // Marcar el juego como terminado
+        if (isGameOver) return; // Salir si el juego ya terminó
         isGameOver = true;
-        // Detener el temporizador
+
         stopTimer();
-        // Revelar todas las minas en el tablero
         revealMines();
-        // Calcular el tiempo total jugado
+
         long elapsedMillis = System.currentTimeMillis() - startTime;
         int segundos = (int) (elapsedMillis / 1000);
-        // Obtener la actividad principal para registrar estadisticas
-        MainActivity mainActivity = (MainActivity) requireActivity();
-        // Actualizar estadisticas generales
-        mainActivity.incrementarPartidasJugadas(); // Incrementar el total de partidas jugadas
-        mainActivity.agregarTiempoJugado(segundos); // Registrar el tiempo jugado en segundos
 
-        // Actualizar estadisticas i mostrar mensaje segun el resultado del juego
+        MainActivity mainActivity = (MainActivity) requireActivity();
+
+        mainActivity.incrementarPartidasJugadas();
+        mainActivity.agregarTiempoJugado(segundos);
+
         if (ganada) {
-            mainActivity.incrementarPartidasGanadas(); // Incrementar las partidas ganadas
+            Log.d("DEBUG", "Incrementando partidas ganadas.");
+            mainActivity.incrementarPartidasGanadas();
             Toast.makeText(getActivity(), "¡Win!", Toast.LENGTH_SHORT).show();
         } else {
-            mainActivity.incrementarPartidasPerdidas(); // Incrementar las partias perdidas
+            mainActivity.incrementarPartidasPerdidas();
             Toast.makeText(getActivity(), "¡Game Over!", Toast.LENGTH_SHORT).show();
         }
     }
+
     // Metodo para revelar todas las minas en el tablero despues de cabar
     private void revealMines() {
         // Recorrer todas las celdas del tablero
